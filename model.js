@@ -1,3 +1,4 @@
+var connection=require("./database")
 exports.modelget=connection.query("select * from hero_films",(err,data)=>{
     if(err){
         res.send(err)

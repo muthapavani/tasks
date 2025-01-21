@@ -1,6 +1,6 @@
 var express=require("express")
-const connection = require("../database")
-const { updatedata } = require("../controller")
+const connection = require("./database")
+const { updatedata } = require("./controller")
 var router=expree.Router()
 app.use(express.json())
 router.get("/data", updatedata.getdata) 
