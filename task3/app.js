@@ -1,6 +1,7 @@
 express=require("express")
 var app=express();
 var router=require("/data.js")
+app.use(express.urlencoded({extends:true}))
 app.use("/auth",router)
 
 app.get("/",(req,res)=>{
