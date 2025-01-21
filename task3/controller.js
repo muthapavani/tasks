@@ -1,3 +1,4 @@
+var model=require("./model.js")
 exports.getdata=(req,res)=>{
     console.log(model.modelget)
 }
