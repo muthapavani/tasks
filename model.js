@@ -1,34 +1,50 @@
 var connection=require("./database")
-exports.modelget=connection.query("select * from hero_films",(err,data)=>{
+exports.modelget=()=>{
+    return new Promise((res,rej)=>{
+    connection.query("select * from hero_films",(err,data)=>{
     if(err){
-        res.send(err)
+        rej(err)
     }
     else{
-        res.send("data")
+        res(data)
     }
 })
+})
+}
 
-exports.mpdelpost=connection.query("insert into hero_films(s_no, hero_name , film_count, hits) values(?,?,?,?)",[s_no, hero_name , film_count, hits],(err,data)=>{
+exports.mpdelpost=()=>{
+return new Promise((res,rej)=>{
+    connection.query("insert into hero_films(s_no, hero_name , film_count, hits) values(?,?,?,?)",[s_no, hero_name , film_count, hits],(err,data)=>{
     if(err){
-        res.send(err)
+        rej(err)
     }
     else{
-        res.send("data")
+        res(data)
     }
 })
-exports.modelupdate=connection.query("update hero_films SET film_count=? where hero_name=prabhas ",[count],(err,data)=>{
+})
+}
+exports.modelupdate=()=>{
+    return new Promise((res,rej)=>{
+        connection.query("update hero_films SET film_count=? where hero_name=prabhas ",[count],(err,data)=>{
     if(err){
-        res.send(err)
+        rej(err)
     }
     else{
-        res.send("data")
+        res(data)
     }
 })
-exports.modeldelete= connection.query("delete from hero_films where hero_name=?",[name],(err,data)=>{
+})
+}
+exports.modeldelete=()=>{
+    return new Promise((res,rej)=>{
+        connection.query("delete from hero_films where hero_name=?",[name],(err,data)=>{
     if(err){
-        res.send(err)
+        rej(err)
     }
     else{
-        res.send("data")
+        res(data)
     }
 })
+})
+}

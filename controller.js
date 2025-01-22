@@ -1,22 +1,27 @@
 var model=require("./model.js")
-exports.getdata=(req,res)=>{
-    console.log(model.modelget)
+exports.getdata=async(req,res)=>{
+    var data= await model.modelget
+    console.log(data)
 }
-exports.postdata=(req,res)=>{
+
+exports.postdata=async(req,res)=>{
     console.log(req.body)
     var {s_no, hero_name , film_count, hits}=req.body
-    console.log(model.modelpost)
+    var data1= await model.modelpost
+    console.log(data1)
 }
-exports.updatedata=(req,res)=>{
+
+exports.updatedata=async(req,res)=>{
     console.log(req.body)
     var {count}=req.body
-    console.log(model.modelupdate)
-   
+    var data2= await model.modelupdate
+    console.log(data2)  
 }
-exports.deletedata=(req,res)=>{
+
+exports.deletedata=async(req,res)=>{
     console.log(req.body)
     var {name}=req.body
-    console.log(model.modeldelete)
-   
+    var data3= await model.modeldelete
+    console.log(data3)
 }
 
